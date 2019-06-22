@@ -16,6 +16,10 @@ module.exports = {
     removeSearchAliasX: false,
     addSearchAliasX:    false,
     completions:        false,
+    getClickableElements:  false,
+    filterOverlapElements: false,
+    clickOn:               false,
+    walkPageUrl:           false,
   },
   env: {
     browser: true,

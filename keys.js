@@ -4,17 +4,17 @@ const { categories } = require("./help")
 // Remove undesired default mappings
 const unmaps = {
   mappings: [
-    "sb", "sw", "ob",
-    "ow", "cp", ";cp",
-    ";ap", "spa", "spb",
-    "spd", "sps", "spc",
-    "sfr", "ab", "Q", "q",
-    "af", ";s", "yp",
-    "<Ctrl-j>", "<Ctrl-h>",
+    // "sb", "sw", "ob",
+    // "ow", "cp", ";cp",
+    // ";ap", "spa", "spb",
+    // "spd", "sps", "spc",
+    // "sfr", "ab", "Q", "q",
+    // "af", ";s", "yp",
+    // "<Ctrl-j>", "<Ctrl-h>",
   ],
   searchAliases: {
-    s: ["g", "d", "b",
-      "w", "s", "h"],
+    // s: ["g", "d", "b",
+    //   "w", "s", "h"],
   },
 }
 
@@ -32,36 +32,36 @@ const maps = {
       description: "Open link URL in vim editor",
       callback:    actions.previewLink,
     },
-    {
-      alias:       "w",
-      map:         "k",
-      category:    categories.scroll,
-      description: "Scroll up",
-    },
-    {
-      alias:       "s",
-      map:         "j",
-      category:    categories.scroll,
-      description: "Scroll down",
-    },
-    {
-      alias:       "K",
-      map:         "e",
-      category:    categories.scroll,
-      description: "Scroll half page up",
-    },
-    {
-      alias:       "J",
-      map:         "d",
-      category:    categories.scroll,
-      description: "Scroll half page down",
-    },
-    {
-      alias:       "gi",
-      category:    categories.pageNav,
-      description: "Edit current URL with vim editor",
-      callback:    actions.vimEditURL,
-    },
+    // {
+    //   alias:       "w",
+    //   map:         "k",
+    //   category:    categories.scroll,
+    //   description: "Scroll up",
+    // },
+    // {
+    //   alias:       "s",
+    //   map:         "j",
+    //   category:    categories.scroll,
+    //   description: "Scroll down",
+    // },
+    // {
+    //   alias:       "K",
+    //   map:         "e",
+    //   category:    categories.scroll,
+    //   description: "Scroll half page up",
+    // },
+    // {
+    //   alias:       "J",
+    //   map:         "d",
+    //   category:    categories.scroll,
+    //   description: "Scroll half page down",
+    // },
+    // {
+    //   alias:       "gi",
+    //   category:    categories.pageNav,
+    //   description: "Edit current URL with vim editor",
+    //   callback:    actions.vimEditURL,
+    // },
     {
       alias:       "gI",
       category:    categories.pageNav,
@@ -74,12 +74,12 @@ const maps = {
       description: "Copy anchor URL to clipboard",
       callback:    actions.copyAnchorURL,
     },
-    {
-      alias:       "yp",
-      category:    categories.clipboard,
-      description: "Copy URL path of current page",
-      callback:    actions.copyURLPath(),
-    },
+    // {
+    //   alias:       "yp",
+    //   category:    categories.clipboard,
+    //   description: "Copy URL path of current page",
+    //   callback:    actions.copyURLPath(),
+    // },
     {
       alias:       "yI",
       category:    categories.clipboard,
@@ -180,6 +180,36 @@ const maps = {
       map:         "gxT",
       category:    categories.tabs,
       description: "Close tab to right",
+    },
+    {
+      alias:       "<Ctrl-Insert>",
+      map:         "<Alt-s>",
+      category:    categories.help,
+      description: "Toggle SurfingKeys on current site",
+    },
+    {
+      alias:       "<Backspace>",
+      map:         "2u",
+      category:    categories.scroll,
+      description: "Scroll a page up",
+    },
+    {
+      alias:       ",",
+      map:         "<Ctrl-6>",
+      category:    categories.tabs,
+      description: "Go to last used tab",
+    },
+    {
+      alias:       ";;",
+      category:    categories.mouseClick,
+      description: "Focus element",
+      callback:    actions.createHint("*[href]", (e) => e.focus()),
+    },
+    {
+      alias:       ";pu",
+      category:    categories.settings,
+      description: "Reload settings from gist",
+      callback:    actions.reloadSettings,
     },
   ],
 
