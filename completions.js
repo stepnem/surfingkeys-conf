@@ -642,6 +642,13 @@ completions.cp.callback = (response) => parseCrunchbase(response, (person) => {
 
 // ****** Search Engines ****** //
 
+// Startpage
+completions.sp = {
+  alias:  "sp",
+  name:   "Startpage",
+  search: "https://www.startpage.com/do/dsearch?prfe=36c84513558a2d34bf0d89ea505333ad8572cfaa3e9208e97c6a33f2d1323e6d5c431b4299889bafd598b949d91446c9&query=",
+}
+
 // DuckDuckGo
 completions.dd = {
   alias:  "dd",
