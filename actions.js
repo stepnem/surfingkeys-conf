@@ -34,6 +34,12 @@ actions.copyOrgLink = () =>
 actions.copyMarkdownLink = () =>
   Clipboard.write(`[${document.title}](${util.getCurrentLocation("href")})`)
 
+actions.copyAnchorURL = () => Hints.create("[id]", (e) => {
+  const url = new URL(window.location.href)
+  url.hash = e.id || e.name
+  Clipboard.write(url.href)
+})
+
 actions.duplicateTab = () =>
   actions.openLink(util.getCurrentLocation("href"), { newTab: true, active: false })()
 

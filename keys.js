@@ -69,6 +69,12 @@ const maps = {
       callback:    actions.createHint("img", (i) => actions.openLink(i.src)()),
     },
     {
+      alias:       "y#",
+      category:    categories.clipboard,
+      description: "Copy anchor URL to clipboard",
+      callback:    actions.copyAnchorURL,
+    },
+    {
       alias:       "yp",
       category:    categories.clipboard,
       description: "Copy URL path of current page",
