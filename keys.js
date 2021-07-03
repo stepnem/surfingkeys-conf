@@ -74,6 +74,21 @@ const maps = {
       description: "Copy anchor URL to clipboard",
       callback:    actions.copyAnchorURL,
     },
+    {
+      alias:       "yu",
+      category:    categories.misc,
+      description: "Send URL to mpv",
+      callback:    () => Hints.create("*[href]", (e) => {
+        const message = {
+          kind: "native",
+          data: { kind: "spawn", command: ["mpv", e.href] },
+        }
+        /* global browser */
+        // console.log("yu: sending " + message)
+        browser.runtime.sendMessage("omnibus@stepnem", message)
+        // .then(console.log, console.error)
+      }),
+    },
     // {
     //   alias:       "yp",
     //   category:    categories.clipboard,
