@@ -229,6 +229,12 @@ const maps = {
       description: "Org store link",
       callback:    () => actions.orgProtocol.storeLink(),
     },
+    {
+      alias:       ";v",
+      category:    categories.misc,
+      description: "Limit max text width",
+      callback:    () => actions.limitTextWidth(),
+    }
   ],
 
   "amazon.com": [

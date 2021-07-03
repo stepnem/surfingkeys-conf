@@ -733,4 +733,17 @@ actions.orgProtocol = {
   },
 }
 
+// Style
+// -----
+
+actions.limitTextWidth = () => {
+  if (!actions.sn_style_maxwidth) {
+    actions.sn_style_maxwidth = document.createElement("style")
+    actions.sn_style_maxwidth.innerText = ""
+    document.head.appendChild(actions.sn_style_maxwidth)
+  }
+  actions.sn_style_maxwidth.innerText =
+    actions.sn_style_maxwidth.innerText ? "" : "body { max-width: 730px; }"
+}
+
 module.exports = actions
