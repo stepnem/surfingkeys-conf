@@ -209,7 +209,7 @@ const maps = {
       alias:       ";pu",
       category:    categories.settings,
       description: "Reload settings from gist",
-      callback:    actions.reloadSettings,
+      callback:    () => actions.reloadSettings(),
     },
   ],
 

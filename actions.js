@@ -124,14 +124,11 @@ actions.editSettings = () => tabOpenLink(chrome.extension.getURL("/pages/options
 
 const gistUrl = `https://gist.githubusercontent.com/stepnem/7d5ae5a5c6f8d356b3b9ee03ebcbe7ea/raw/settings.js?flushcachebogusparam=${Math.random()}`
 
-actions.reloadSettings = () => {
-  runtime.command({
-    action: "loadSettingsFromUrl",
-    url:    gistUrl,
-  }, (res) => {
-    Front.showPopup(`${res.status} to load settings from ${gistUrl}`)
-  })
-}
+actions.reloadSettings = () => RUNTIME("loadSettingsFromUrl", {
+  url: gistUrl,
+}, (res) => {
+  Front.showPopup(`${res.status} to load settings from ${gistUrl}`)
+})
 
 actions.togglePdfViewer = () => chrome.storage.local.get("noPdfViewer", (resp) => {
   if (!resp.noPdfViewer) {
