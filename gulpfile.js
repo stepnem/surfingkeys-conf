@@ -88,7 +88,7 @@ task("clean-favicons", () => del([paths.favicons]))
 
 const lint = (globs, opts = {}) => gulp.src(globs)
   .pipe(eslint(opts))
-  .pipe(eslint.format())
+  .pipe(eslint.format("unix", process.stdout))
 
 task("lint", () => lint([...paths.scripts, paths.gulpfile]))
 
