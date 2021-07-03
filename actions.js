@@ -718,4 +718,19 @@ actions.wp.toggleSimple = () => {
   actions.openLink(u.href)()
 }
 
+// Org Protocol
+// ------------
+
+actions.orgProtocol = {
+  storeLink: () => {
+    document.location.href = `org-protocol://store-link${util.buildQuery()}`
+  },
+  capture: () => {
+    document.location.href = `org-protocol://capture${util.buildQuery()}`
+  },
+  elfeed: (url) => {
+    document.location.href = `org-protocol://capture${util.buildQuery({ template: "f", url })}`
+  },
+}
+
 module.exports = actions

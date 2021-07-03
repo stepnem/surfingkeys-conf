@@ -211,6 +211,24 @@ const maps = {
       description: "Reload settings from gist",
       callback:    () => actions.reloadSettings(),
     },
+    {
+      alias:       ";oc",
+      category:    categories.misc,
+      description: "Org capture",
+      callback:    () => actions.orgProtocol.capture(),
+    },
+    {
+      alias:       ";of",
+      category:    categories.misc,
+      description: "Add elfeed link",
+      callback:    actions.createHint("*[href]", (e) => actions.orgProtocol.elfeed(e.href)),
+    },
+    {
+      alias:       ";ol",
+      category:    categories.misc,
+      description: "Org store link",
+      callback:    () => actions.orgProtocol.storeLink(),
+    },
   ],
 
   "amazon.com": [

@@ -2,6 +2,25 @@ const { categories } = require("./help")
 
 const util = {}
 
+// buildQuery: (overrides = {
+//   url = document.location.href,
+//   title = document.title,
+//   body = window.getSelection(),
+//   template,
+// } = {}) =>
+util.buildQuery = (overrides = {}) => {
+  const params = {
+    url:   document.location.href,
+    title: document.title,
+    body:  window.getSelection(),
+    ...overrides,
+  }
+  // eslint-disable-next-line prefer-template
+  return "?" + Object.entries(params)
+    .flatMap(([key, val]) => `${key}=${encodeURIComponent(val)}`)
+    .join("&")
+}
+
 util.getCurrentLocation = (prop = "href") => {
   if (typeof window === "undefined") {
     return ""
