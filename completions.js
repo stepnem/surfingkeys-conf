@@ -82,6 +82,12 @@ completions.af = {
   callback: googleCxCallback,
 }
 
+completions.pr = {
+  alias:  "pr",
+  name:   "repology",
+  search: "https://repology.org/projects/?search=",
+}
+
 // ****** Technical Resources ****** //
 
 // AlternativeTo
