@@ -589,54 +589,6 @@ const maps = {
     },
   ],
 
-  "reddit.com": [
-    {
-      alias:       "x",
-      description: "Collapse comment",
-      callback:    actions.createHint(".expand"),
-    },
-    {
-      alias:       "X",
-      description: "Collapse next comment",
-      callback:    actions.re.collapseNextComment,
-    },
-    {
-      alias:       "s",
-      description: "Upvote",
-      callback:    actions.createHint(".arrow.up"),
-    },
-    {
-      alias:       "S",
-      description: "Downvote",
-      callback:    actions.createHint(".arrow.down"),
-    },
-    {
-      alias:       "e",
-      description: "Expand expando",
-      callback:    actions.createHint(".expando-button"),
-    },
-    {
-      alias:       "a",
-      description: "View post (link)",
-      callback:    actions.createHint(".title"),
-    },
-    {
-      alias:       "A",
-      description: "View post (link) (non-active new tab)",
-      callback:    actions.createHint(".title", actions.openAnchor({ newTab: true, active: false })),
-    },
-    {
-      alias:       "c",
-      description: "View post (comments)",
-      callback:    actions.createHint(".comments"),
-    },
-    {
-      alias:       "C",
-      description: "View post (comments) (non-active new tab)",
-      callback:    actions.createHint(".comments", actions.openAnchor({ newTab: true, active: false })),
-    },
-  ],
-
   "news.ycombinator.com": [
     {
       alias:       "x",
