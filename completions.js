@@ -34,7 +34,7 @@ const googleCxCallback = (response) => {
 completions.al = {
   alias:    "al",
   name:     "archlinux",
-  search:   "https://www.archlinux.org/packages/?arch=x86_64&q=",
+  search:   "https://www.archlinux.org/packages/?q=",
   compl:    googleCxURL("al"),
   callback: googleCxCallback,
 }
