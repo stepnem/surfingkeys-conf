@@ -5,6 +5,8 @@ const completions = require("./completions")
 // ---- Settings ----//
 // https://github.com/brookhong/Surfingkeys/wiki/Example-Configurations
 util.addSettings({
+  clickablePat:             /(https?:\/\/|thunder:\/\/|magnet:)[^<>,'"\s]+/ig,
+  pageUrlRegex:             [/(.*?)(\d+)([^0-9]*$)/, /(.*)(\d+)([^.]*?$)/],
   hintAlign:                "left",
   omnibarSuggestionTimeout: 500,
   richHintsForKeystroke:    200,
