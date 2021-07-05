@@ -736,14 +736,29 @@ actions.orgProtocol = {
 // Style
 // -----
 
-actions.limitTextWidth = () => {
-  if (!actions.sn_style_maxwidth) {
-    actions.sn_style_maxwidth = document.createElement("style")
-    actions.sn_style_maxwidth.innerText = ""
-    document.head.appendChild(actions.sn_style_maxwidth)
+actions.snMaxwidthCss = "body { max-width: 730px; }"
+actions.snMaxwidthEnsureStyle = (enable) => {
+  if (!actions.snStyleMaxwidth) {
+    actions.snStyleMaxwidth = document.createElement("style")
+    actions.snStyleMaxwidth.innerText = enable ? actions.snMaxwidthCss : ""
+    document.head.appendChild(actions.snStyleMaxwidth)
   }
-  actions.sn_style_maxwidth.innerText =
-    actions.sn_style_maxwidth.innerText ? "" : "body { max-width: 730px; }"
+}
+actions.snWideSites = "https://gist.githubusercontent.com/stepnem/116607569044837247f92169098186a6/raw/f39d808046245fcda25496d3f32155d0c8e019eb/wide-sites.txt?flushcachebogusparam=apsodifj"
+fetch(actions.snWideSites)
+  .then((response) => response.text())
+  .then((text) => {
+    for (const line of text.split(/\n/)) {
+      if (!line.match(/^#|^\s*$/) && window.location.href.match(line)) {
+        actions.snMaxwidthEnsureStyle(true)
+      }
+    }
+  })
+
+actions.limitTextWidth = () => {
+  actions.snMaxwidthEnsureStyle()
+  actions.snStyleMaxwidth.innerText =
+    actions.snStyleMaxwidth.innerText ? "" : actions.snMaxwidthCss
 }
 
 module.exports = actions
