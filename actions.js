@@ -744,7 +744,7 @@ actions.snMaxwidthEnsureStyle = (enable) => {
     document.head.appendChild(actions.snStyleMaxwidth)
   }
 }
-actions.snWideSites = "https://gist.githubusercontent.com/stepnem/116607569044837247f92169098186a6/raw/f39d808046245fcda25496d3f32155d0c8e019eb/wide-sites.txt?flushcachebogusparam=apsodifj"
+actions.snWideSites = "https://gist.githubusercontent.com/stepnem/116607569044837247f92169098186a6/raw/wide-sites.txt?flushcachebogusparam=apsodifj"
 fetch(actions.snWideSites)
   .then((response) => response.text())
   .then((text) => {
