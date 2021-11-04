@@ -757,8 +757,8 @@ fetch(actions.snWideSites)
 
 actions.limitTextWidth = () => {
   actions.snMaxwidthEnsureStyle()
-  actions.snStyleMaxwidth.innerText =
-    actions.snStyleMaxwidth.innerText ? "" : actions.snMaxwidthCss
+  actions.snStyleMaxwidth.innerText = actions.snStyleMaxwidth.innerText
+    ? "" : actions.snMaxwidthCss
 }
 
 module.exports = actions

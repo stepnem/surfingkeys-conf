@@ -1132,7 +1132,6 @@ completions.ma = {
   search: "https://www.mail-archive.com/search?l=all&q=",
 }
 
-
 // Hacker News (YCombinator)
 completions.hn = {
   alias:  "hn",

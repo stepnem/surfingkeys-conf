@@ -249,7 +249,7 @@ const maps = {
       category:    categories.misc,
       description: "Limit max text width",
       callback:    () => actions.limitTextWidth(),
-    }
+    },
   ],
 
   "amazon.com": [
