@@ -673,10 +673,10 @@ completions.wa.callback = (response, { query }) => {
 
 // DuckDuckGo
 completions.dd = {
-  alias: "dd",
-  name: "duckduckgo",
-  search: "https://duckduckgo.com/?q=",
-  compl: "https://duckduckgo.com/ac/?q=",
+  alias:  "dd",
+  name:   "duckduckgo",
+  search: "https://html.duckduckgo.com/html?q=",
+  compl:  "https://duckduckgo.com/ac/?q=",
 }
 
 completions.dd.callback = (response) =>
@@ -1284,6 +1284,82 @@ completions.hf.callback = (response) => {
      `
     ),
   ]
+}
+
+completions.dw = {
+  alias:  "dw",
+  name:   "dwds",
+  search: "https://www.dwds.de/?q=",
+  // compl: "https://www.dwds.de/opensearch/suggest?q=",
+  compl:  "https://www.dwds.de/wb/typeahead?q=",
+}
+completions.dw.callback = (res) =>
+  JSON.parse(res.text).map((o) =>
+    createSuggestionItem(`
+      <div class="title"><strong>${o.value}</strong> (${o.pos})</div>
+    `))
+
+completions.pr = {
+  alias:  "pr",
+  name:   "repology",
+  search: "https://repology.org/projects/?search=",
+}
+
+completions.sp = {
+  alias:    "sp",
+  name:     "startpage",
+  search:   "https://www.startpage.com/do/dsearch?prfe=36c84513558a2d34bf0d89ea505333ad8572cfaa3e9208e97c6a33f2d1323e6d5c431b4299889bafd598b949d91446c9&query=",
+  compl:    "https://www.startpage.com/do/suggest?limit=10&lang=english&format=json&query=",
+  callback: (res) => JSON.parse(res.text)[1],
+}
+
+completions.mc = {
+  alias:  "mc",
+  name:   "mapy",
+  search: "https://mapy.cz/?q=",
+  compl:  "https://pro.mapy.cz/suggest/?count=5&enablecategories=1&phrase=",
+}
+completions.mc.callback = (res) => JSON.parse(res.text)
+  .result.map((e) => createSuggestionItem(`
+    <div>
+      <div class="title"><strong>${e.userData.suggestFirstRow}</strong></div>
+      <div>${e.userData.suggestSecondRow}</div>
+    </div>
+`))
+
+completions.ra = {
+  alias:  "ra",
+  name:   "racket",
+  search: "https://docs.racket-lang.org/search/index.html?q=",
+}
+
+completions.jw = {
+  alias:    "jw",
+  name:     "jwiki",
+  search:   "https://code.jsoftware.com/mediawiki/index.php?title=Special%3ASearch&go=Go&search=",
+  compl:    "https://code.jsoftware.com/mediawiki/api.php?action=opensearch&format=json&formatversion=2&namespace=0|2&limit=10&suggest=true&search=",
+  callback: (res) => JSON.parse(res.text)[1],
+}
+
+completions.jf = {
+  alias:  "jf",
+  name:   "jforums",
+  search: "https://www.jsoftware.com/cgi-bin/forumsearch.cgi?all=",
+}
+
+completions.ut = {
+  alias:    "ut",
+  name:     "uloz.to",
+  search:   "https://uloz.to/hledej?q=",
+  compl:    "https://uloz.to/searchSuggest.php?term=",
+  callback: (res) => JSON.parse(res.text).map((el) => el.term),
+}
+
+// https://www.mail-archive.com/search?l=pacman-dev%40archlinux.org&q=stuff
+completions.ma = {
+  alias:  "ma",
+  name:   "mail-archive",
+  search: "https://www.mail-archive.com/search?l=all&q=",
 }
 
 export default completions

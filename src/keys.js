@@ -6,43 +6,43 @@ import util from "./util.js"
 
 const { categories } = help
 
-const { Clipboard, Front } = api
+const { Clipboard, Front, Hints } = api
 
 // Remove undesired default mappings
 const unmaps = {
   mappings: [
-    "sb",
-    "sw",
-    "ob",
-    "oe",
-    "ow",
-    "oy",
-    "cp",
-    ";cp",
-    ";ap",
-    "spa",
-    "spb",
-    "spd",
-    "sps",
-    "spc",
-    "spi",
-    "sfr",
-    "zQ",
-    "zz",
-    "zR",
-    "ab",
-    "Q",
-    "q",
-    "ag",
+    // "sb",
+    // "sw",
+    // "ob",
+    // "oe",
+    // "ow",
+    // "oy",
+    // "cp",
+    // ";cp",
+    // ";ap",
+    // "spa",
+    // "spb",
+    // "spd",
+    // "sps",
+    // "spc",
+    // "spi",
+    // "sfr",
+    // "zQ",
+    // "zz",
+    // "zR",
+    // "ab",
+    // "Q",
+    // "q",
+    // "ag",
     "af",
-    ";s",
-    "yp",
-    "p",
-    "<Ctrl-j>",
-    "<Ctrl-h>",
+    // ";s",
+    // "yp",
+    // "p",
+    // "<Ctrl-j>",
+    // "<Ctrl-h>",
   ],
   searchAliases: {
-    s: ["g", "d", "b", "e", "w", "s", "h", "y"],
+    // s: ["g", "d", "b", "e", "w", "s", "h", "y"],
   },
 }
 
@@ -296,6 +296,90 @@ maps.global = [
   //   description: "Open AWS service",
   //   callback:    actions.omnibar.aws,
   // },
+  {
+    alias:       "F",
+    category:    categories.mouseClick,
+    description: "Open a link in active new tab",
+    callback:    () => Hints.create("", Hints.dispatchMouseClick, { tabbed: true, active: true }),
+  },
+  {
+    alias:       "y#",
+    category:    categories.clipboard,
+    description: "Copy anchor URL to clipboard",
+    callback:    () => util.createHints("[id]", (e) => {
+      const url = new URL(window.location.href)
+      url.hash = e.id || e.name
+      Clipboard.write(url.href)
+    }),
+  },
+  {
+    alias:       "yu",
+    category:    categories.misc,
+    description: "Send URL to mpv",
+    callback:    () => util.createHints("*[href]", (e) => {
+      const message = {
+        kind: "native",
+        data: { kind: "spawn", command: ["mpv", e.href] },
+      }
+      // console.log("yu: sending " + message)
+      browser.runtime.sendMessage("omnibus@stepnem", message)
+      // .then(console.log, console.error)
+    }),
+  },
+  {
+    alias:       "<Ctrl-Insert>",
+    map:         "<Alt-s>",
+    category:    categories.help,
+    description: "Toggle SurfingKeys on current site",
+  },
+  {
+    alias:       "<BS>",
+    map:         "2u",
+    category:    categories.scroll,
+    description: "Scroll a page up",
+  },
+  {
+    alias:       ",",
+    map:         "<Ctrl-6>",
+    category:    categories.tabs,
+    description: "Go to last used tab",
+  },
+  {
+    alias:       ";;",
+    category:    categories.mouseClick,
+    description: "Focus element",
+    callback:    () => util.createHints("*[href]", (e) => e.focus()),
+  },
+  {
+    alias:       ";pu",
+    category:    categories.settings,
+    description: "Reload settings from gist",
+    callback:    () => actions.reloadSettings(),
+  },
+  {
+    alias:       ";oc",
+    category:    categories.misc,
+    description: "Org capture",
+    callback:    () => actions.orgProtocol.capture(),
+  },
+  {
+    alias:       ";of",
+    category:    categories.misc,
+    description: "Add elfeed link",
+    callback:    () => util.createHints("*[href]", (e) => actions.orgProtocol.elfeed(e.href)),
+  },
+  {
+    alias:       ";ol",
+    category:    categories.misc,
+    description: "Org store link",
+    callback:    () => actions.orgProtocol.storeLink(),
+  },
+  {
+    alias:       ";v",
+    category:    categories.misc,
+    description: "Limit max text width",
+    callback:    () => actions.limitTextWidth(),
+  },
 ]
 
 maps["amazon.com"] = [

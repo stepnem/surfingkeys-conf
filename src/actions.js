@@ -1204,4 +1204,60 @@ actions.doi.getLink = (provider) => {
   return priv.doi_handler(doi)
 }
 
+// SN
+// ==
+const gistUrl = `https://gist.githubusercontent.com/stepnem/7d5ae5a5c6f8d356b3b9ee03ebcbe7ea/raw/settings.js?flushcachebogusparam=${Math.random()}`
+
+actions.reloadSettings = () => RUNTIME("loadSettingsFromUrl", {
+  url: gistUrl,
+}, (res) => {
+  Front.showPopup(`${res.status} to load settings from ${gistUrl}`)
+})
+
+actions.duplicateTab = () =>
+  actions.openLink(util.getCurrentLocation("href"), { newTab: true, active: false })()
+
+// Org Protocol
+// ------------
+
+actions.orgProtocol = {
+  storeLink: () => {
+    document.location.href = `org-protocol://store-link${util.buildQuery()}`
+  },
+  capture: () => {
+    document.location.href = `org-protocol://capture${util.buildQuery()}`
+  },
+  elfeed: (url) => {
+    document.location.href = `org-protocol://capture${util.buildQuery({ template: "f", url })}`
+  },
+}
+
+// Style
+// -----
+
+actions.snMaxwidthCss = "body { max-width: 730px; }"
+actions.snMaxwidthEnsureStyle = (enable) => {
+  if (!actions.snStyleMaxwidth) {
+    actions.snStyleMaxwidth = document.createElement("style")
+    actions.snStyleMaxwidth.innerText = enable ? actions.snMaxwidthCss : ""
+    document.head.appendChild(actions.snStyleMaxwidth)
+  }
+}
+actions.snWideSites = "https://gist.githubusercontent.com/stepnem/116607569044837247f92169098186a6/raw/wide-sites.txt?flushcachebogusparam=apsodifj"
+fetch(actions.snWideSites)
+  .then((response) => response.text())
+  .then((text) => {
+    for (const line of text.split(/\n/)) {
+      if (!line.match(/^#|^\s*$/) && window.location.href.match(line)) {
+        actions.snMaxwidthEnsureStyle(true)
+      }
+    }
+  })
+
+actions.limitTextWidth = () => {
+  actions.snMaxwidthEnsureStyle()
+  actions.snStyleMaxwidth.innerText = actions.snStyleMaxwidth.innerText
+    ? "" : actions.snMaxwidthCss
+}
+
 export default actions
