@@ -200,4 +200,23 @@ util.prettyDate = (date) => {
   }${count ? " ago" : ""}`
 }
 
+// buildQuery: (overrides = {
+//   url = document.location.href,
+//   title = document.title,
+//   body = window.getSelection(),
+//   template,
+// } = {}) =>
+util.buildQuery = (overrides = {}) => {
+  const params = {
+    url:   document.location.href,
+    title: document.title,
+    body:  window.getSelection(),
+    ...overrides,
+  }
+  // eslint-disable-next-line prefer-template
+  return "?" + Object.entries(params)
+    .flatMap(([key, val]) => `${key}=${encodeURIComponent(val)}`)
+    .join("&")
+}
+
 export default util
