@@ -369,6 +369,12 @@ maps.global = [
     callback:    () => actions.orgProtocol.storeLink(),
   },
   {
+    alias:       ";ow",
+    category:    categories.misc,
+    description: "Add to wide sites",
+    callback:    () => actions.orgProtocol.addToWideSites(),
+  },
+  {
     alias:       ";v",
     category:    categories.misc,
     description: "Limit max text width",
