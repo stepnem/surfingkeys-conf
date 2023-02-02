@@ -1221,6 +1221,9 @@ actions.duplicateTab = () =>
 // ------------
 
 actions.orgProtocol = {
+  addToWideSites: () => {
+    document.location.href = `org-protocol://my-funcall${util.buildQuery({ call: "my-wide-sites-add" })}`
+  },
   storeLink: () => {
     document.location.href = `org-protocol://store-link${util.buildQuery()}`
   },
