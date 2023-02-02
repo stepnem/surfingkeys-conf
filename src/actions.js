@@ -1227,8 +1227,14 @@ actions.orgProtocol = {
   capture: () => {
     document.location.href = `org-protocol://capture${util.buildQuery()}`
   },
-  elfeed: (url) => {
-    document.location.href = `org-protocol://capture${util.buildQuery({ template: "f", url })}`
+  elfeedArch: (url) => {
+    document.location.href = `org-protocol://capture${util.buildQuery({ template: "fa", url })}`
+  },
+  elfeedBlogs: (url) => {
+    document.location.href = `org-protocol://capture${util.buildQuery({ template: "fb", url })}`
+  },
+  elfeedOther: (url) => {
+    document.location.href = `org-protocol://capture${util.buildQuery({ template: "fo", url })}`
   },
 }
 

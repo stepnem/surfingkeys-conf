@@ -363,10 +363,22 @@ maps.global = [
     callback:    () => actions.orgProtocol.capture(),
   },
   {
-    alias:       ";of",
+    alias:       ";ofa",
     category:    categories.misc,
-    description: "Add elfeed link",
-    callback:    () => util.createHints("*[href]", (e) => actions.orgProtocol.elfeed(e.href)),
+    description: "Add elfeed Arch Forums link",
+    callback:    () => util.createHints("*[href]", (e) => actions.orgProtocol.elfeedArch(e.href)),
+  },
+  {
+    alias:       ";ofb",
+    category:    categories.misc,
+    description: "Add elfeed Blogs link",
+    callback:    () => util.createHints("*[href]", (e) => actions.orgProtocol.elfeedBlogs(e.href)),
+  },
+  {
+    alias:       ";ofo",
+    category:    categories.misc,
+    description: "Add elfeed Other link",
+    callback:    () => util.createHints("*[href]", (e) => actions.orgProtocol.elfeedOther(e.href)),
   },
   {
     alias:       ";ol",
