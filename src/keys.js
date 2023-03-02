@@ -375,6 +375,12 @@ maps.global = [
     callback:    () => util.createHints("*[href]", (e) => actions.orgProtocol.elfeedBlogs(e.href)),
   },
   {
+    alias:       ";ofh",
+    category:    categories.misc,
+    description: "Add elfeed Hacker News link",
+    callback:    () => actions.orgProtocol.elfeedHN(window.location.href),
+  },
+  {
     alias:       ";ofo",
     category:    categories.misc,
     description: "Add elfeed Other link",
