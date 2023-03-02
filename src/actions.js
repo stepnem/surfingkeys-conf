@@ -1266,6 +1266,9 @@ actions.orgProtocol = {
   elfeedBlogs: (url) => {
     document.location.href = `org-protocol://capture${util.buildQuery({ template: "fb", url })}`
   },
+  elfeedHN: (url) => {
+    document.location.href = `org-protocol://capture${util.buildQuery({ template: "fh", url: url.replace("news.ycombinator.com/item", "hnrss.org/item.atom") })}`
+  },
   elfeedOther: (url) => {
     document.location.href = `org-protocol://capture${util.buildQuery({ template: "fo", url })}`
   },
