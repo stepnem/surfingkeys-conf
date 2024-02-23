@@ -1236,7 +1236,7 @@ actions.doi.getLink = (provider) => {
 
 // SN
 // ==
-const gistUrl = `https://gist.githubusercontent.com/stepnem/7d5ae5a5c6f8d356b3b9ee03ebcbe7ea/raw/settings.js?flushcachebogusparam=${Math.random()}`
+const gistUrl = "http://127.0.0.1:8089/priv/settings.js"
 
 actions.reloadSettings = () => RUNTIME("loadSettingsFromUrl", {
   url: gistUrl,
@@ -1285,7 +1285,7 @@ actions.snMaxwidthEnsureStyle = (enable) => {
     document.head.appendChild(actions.snStyleMaxwidth)
   }
 }
-actions.snWideSites = "https://gist.githubusercontent.com/stepnem/116607569044837247f92169098186a6/raw/wide-sites.txt?flushcachebogusparam=apsodifj"
+actions.snWideSites = "http://127.0.0.1:8089/tmp/wide-sites.txt"
 fetch(actions.snWideSites)
   .then((response) => response.text())
   .then((text) => {
