@@ -261,7 +261,7 @@ completions.se = {
   alias: "se",
   name: "stackexchange",
   search: "https://stackexchange.com/search?q=",
-  compl: "https://duckduckgo.com/ac/?q=!stackexchange%20",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?q=!stackexchange%20",
 }
 
 completions.se.callback = (response) =>
@@ -675,8 +675,8 @@ completions.wa.callback = (response, { query }) => {
 completions.dd = {
   alias:  "dd",
   name:   "duckduckgo",
-  search: "https://html.duckduckgo.com/html?q=",
-  compl:  "https://duckduckgo.com/ac/?q=",
+  search: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/html?q=",
+  compl:  "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?q=",
 }
 
 completions.dd.callback = (response) =>
@@ -686,8 +686,8 @@ completions.dd.callback = (response) =>
 completions.D = {
   alias: "D",
   name: "duckduckgo-lucky",
-  search: "https://duckduckgo.com/?q=\\",
-  compl: "https://duckduckgo.com/ac/?q=\\",
+  search: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?q=\\",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?q=\\",
   callback: completions.dd.callback,
 }
 
@@ -695,8 +695,8 @@ completions.D = {
 completions.di = {
   alias: "di",
   name: "duckduckgo-images",
-  search: "https://duckduckgo.com/?ia=images&iax=images&q=",
-  compl: "https://duckduckgo.com/ac/?ia=images&iax=images&q=",
+  search: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?ia=images&iax=images&q=",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?ia=images&iax=images&q=",
   callback: completions.dd.callback,
 }
 
@@ -704,8 +704,8 @@ completions.di = {
 completions.dv = {
   alias: "dv",
   name: "duckduckgo-videos",
-  search: "https://duckduckgo.com/?ia=videos&iax=videos&q=",
-  compl: "https://duckduckgo.com/ac/?ia=videos&iax=videos&q=",
+  search: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?ia=videos&iax=videos&q=",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?ia=videos&iax=videos&q=",
   callback: completions.dd.callback,
 }
 
@@ -713,8 +713,8 @@ completions.dv = {
 completions.dn = {
   alias: "dn",
   name: "duckduckgo-news",
-  search: "https://duckduckgo.com/?iar=news&ia=news&q=",
-  compl: "https://duckduckgo.com/ac/?iar=news&ia=news&q=",
+  search: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?iar=news&ia=news&q=",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?iar=news&ia=news&q=",
   callback: completions.dd.callback,
 }
 
@@ -722,8 +722,8 @@ completions.dn = {
 completions.dm = {
   alias: "dm",
   name: "duckduckgo-maps",
-  search: "https://duckduckgo.com/?ia=maps&iax=maps&iaxm=places&q=",
-  compl: "https://duckduckgo.com/ac/?ia=maps&iax=maps&iaxm=places&q=",
+  search: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/?ia=maps&iax=maps&iaxm=places&q=",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?ia=maps&iax=maps&iaxm=places&q=",
   callback: completions.dd.callback,
 }
 
@@ -1138,7 +1138,7 @@ completions.tw = {
   alias: "tw",
   name: "twitter",
   search: "https://twitter.com/search?q=",
-  compl: "https://duckduckgo.com/ac/?q=twitter%20",
+  compl: "https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/ac/?q=twitter%20",
 }
 
 completions.tw.callback = (response, { query }) => {

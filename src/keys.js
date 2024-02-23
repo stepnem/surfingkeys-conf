@@ -521,6 +521,9 @@ maps["duckduckgo.com"] = [
   },
 ]
 
+maps["duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion"] =
+  maps["duckduckgo.com"]
+
 maps["www.yelp.com"] = [
   {
     alias: "fs",
