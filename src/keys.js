@@ -280,9 +280,9 @@ maps.global = [
   // },
   {
     alias:       "F",
+    map:         "gf",
     category:    categories.mouseClick,
     description: "Open a link in active new tab",
-    callback:    () => Hints.create("", Hints.dispatchMouseClick, { tabbed: true, active: true }),
   },
   {
     alias:       "y#",
