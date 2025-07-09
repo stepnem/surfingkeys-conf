@@ -1466,14 +1466,6 @@ completions.jf = {
   search: "https://www.jsoftware.com/cgi-bin/forumsearch.cgi?all=",
 }
 
-completions.ut = {
-  alias:    "ut",
-  name:     "uloz.to",
-  search:   "https://uloz.to/hledej?q=",
-  compl:    "https://uloz.to/searchSuggest.php?term=",
-  callback: (res) => JSON.parse(res.text).map((el) => el.term),
-}
-
 // https://www.mail-archive.com/search?l=pacman-dev%40archlinux.org&q=stuff
 completions.ma = {
   alias:  "ma",
