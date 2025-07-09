@@ -1473,4 +1473,10 @@ completions.ma = {
   search: "https://www.mail-archive.com/search?l=all&q=",
 }
 
+completions.rl = {
+  alias:  "rl",
+  name:   "Lib.rs",
+  search: "https://lib.rs/search?q=",
+}
+
 export default completions
